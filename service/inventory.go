@@ -15,27 +15,31 @@ type InventoryManager interface {
 }
 
 type Inventory struct {
-	InventoryRepo repository.InventoryRepo
+	InventoryRepo repository.InventoryRepository
 }
 
-func createInventory(inventoryRepo repository.InventoryRepo) *Inventory {
+func createInventory(inventoryRepo repository.InventoryRepository) *Inventory {
 	return &Inventory{
 		InventoryRepo: inventoryRepo,
 	}
 }
 
 func (i *Inventory) AddItem(ctx context.Context, item models.Item, quantity int) (err error) {
-	panic("not implemented") // TODO: Implement
+	err = i.InventoryRepo.Add(ctx, item)
+	return
 }
 
 func (i *Inventory) UpdateItem(ctx context.Context, item models.Item, quantity int) (err error) {
-	panic("not implemented") // TODO: Implement
+	err = i.InventoryRepo.Update(ctx, item)
+	return
 }
 
-func (i *Inventory) RemoveItem(ctx context.Context, itemId int64) {
-	panic("not implemented") // TODO: Implement
+func (i *Inventory) RemoveItem(ctx context.Context, itemId int64) (err error) {
+	err = i.InventoryRepo.Delete(ctx, itemId)
+	return
 }
 
 func (i *Inventory) GetInventory(ctx context.Context) (items []models.Item, err error) {
-	panic("not implemented") // TODO: Implement
+	items, err = i.GetInventory(ctx)
+	return
 }

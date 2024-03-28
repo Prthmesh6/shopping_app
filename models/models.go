@@ -13,6 +13,6 @@ type Item struct {
 
 // wallet
 type User struct {
-	Id   string
+	Id   int64
 	Name string
 }
