@@ -2,6 +2,7 @@ package models
 
 type Brand string
 type Category string
+type Cart map[int64]Item
 
 type Item struct {
 	ID          int64
@@ -15,4 +16,5 @@ type Item struct {
 type User struct {
 	Id   int64
 	Name string
+	Cart Cart
 }

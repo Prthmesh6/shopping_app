@@ -12,6 +12,7 @@ type UserRepository interface {
 	Delete(ctx context.Context, userId int64) (err error)
 	Update(ctx context.Context, user models.User) (err error)
 	Getusers(ctx context.Context) (users []models.User, err error)
+
 }
 
 type userRepo struct {
