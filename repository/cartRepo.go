@@ -11,7 +11,7 @@ type CartRepository interface {
 	AddToCart(ctx context.Context, userId int64, item models.Item) (err error)
 	// Delete(ctx context.Context, itemId int64) (err error)
 	// Update(ctx context.Context, item models.Item) (err error)
-	GetCart(ctx context.Context, userId int64) (items []models.Item, err error)
+	GetCart(ctx context.Context, userId int64) (cart models.Cart, err error)
 }
 
 type cartRepo struct {
